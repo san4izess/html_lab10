@@ -109,3 +109,101 @@ p {
   color: #333;
   border: 1px solid #333;
 }
+
+.image-container {
+  width: 100%;
+  position: relative;
+  left: 0;
+  animation: slideLeft 1s forwards;
+}
+
+@keyframes slideLeft {
+  0% {
+      transform: translateX(0%);
+  }
+  100% {
+      transform: translateX(+30%);
+  }
+}
+
+
+
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease-out;
+}
+
+.image:hover {
+  transform: scale(1.1);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-overlay:hover {
+  opacity: 0.8;
+}
+
+.image-overlay h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.image-overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.image-overlay button {
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-out;
+}
+
+.image-overlay button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.image-overlay:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  filter: blur(10px);
+  transform: scale(1.2);
+  z-index: -1;
+  transition: transform 0.5s ease-out;
+}
+
+.image-container:hover .image-overlay:before {
+  transform: scale(1);
+}
